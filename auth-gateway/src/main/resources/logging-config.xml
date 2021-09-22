@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="CHARSET" value="UTF-8" />
+    <property name="PATTERN" value="%date[%level][%thread] %logger{0} - %msg%n" />
+    <property name="PATTERN_FRONT" value="%msg%n" />
+    <property name="HOME_LOG" value="/opt/logs/auth/gateway.log"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder默認配置為PartternLayoutEncoder    -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${PATTERN}</pattern>
+            <charset>${CHARSET}</charset>
+        </encoder>
+    </appender>
+
+    <!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--<File>/home/hfw-client/hfw_log/stdout.log</File>-->
+        <file>${HOME_LOG}</file>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+            <charset>${CHARSET}</charset>
+        </encoder>
+        <!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${HOME_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- each archived file, size max 10MB -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
+            <totalSizeCap>10GB</totalSizeCap>
+            <!-- 60 days to keep -->
+            <maxHistory>15</maxHistory>
+
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.auth.gateway" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOG_FILE"/>
+    </logger>
+
+    <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOG_FILE"/>
+    </logger>
+
+    <logger name="io.lettuce.core.protocol" level="warn">
+        <appender-ref ref="LOG_FILE"/>
+    </logger>
+
+    <root level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOG_FILE"/>
+    </root>
+</configuration>

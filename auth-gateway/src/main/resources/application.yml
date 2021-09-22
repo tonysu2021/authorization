@@ -1,0 +1,42 @@
+server:
+  port: 10077    
+spring:
+  application:
+    name: auth-gateway
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: auth-redis
+    port: 6379
+    timeout: 5000
+  cloud:
+    # Gateway (see /actuator/gateway/routes)
+    gateway:
+      routes:
+      - id: live-stream-http
+        uri: http://live-streaming-video:10081
+        predicates:
+        - Path=/live-stream/**
+        filters:
+        - StripPrefix=1
+        - PrefixPath=/live-stream
+      - id: live-stream-ws
+        uri: ws://live-streaming-video:10081
+        predicates:
+        - Path=/live-stream/**
+        filters:
+        - StripPrefix=1
+        - PrefixPath=/live-stream
+#      httpclient:
+#        websocket:
+#          max-frame-payload-length: 819200
+
+  ####### resource server configuration properties
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://auth-server:10083/.well-known/jwks.json
+
+logging:
+  config: classpath:logging-config.xml

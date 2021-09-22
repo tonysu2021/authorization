@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  postgres-auth:
+    # follow Azure PostgreSQL version
+    image: "postgres:13.1-alpine"
+    restart: "always"
+    volumes:
+      - postgres-auth-storage:/var/lib/postgresql/data
+      - ./init/init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
+      - ./init/auth-client.sql:/tmp/auth-client.sql
+      - ./init/auth-rbac.sql:/tmp/auth-rbac.sql
+    ports:
+      - "25432:5432"
+    environment:
+      # Default Account: postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - botnet
+
+networks:
+  botnet:
+    name: botnet
+    driver: bridge
+
+volumes:
+  postgres-auth-storage:

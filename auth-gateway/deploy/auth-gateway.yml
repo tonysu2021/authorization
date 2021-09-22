@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  auth-gateway:
+    image: ${IMAGE_NAME}
+    extra_hosts:
+      auth-redis: 172.20.111.184
+    deploy:
+      placement:
+        constraints:
+          - "node.labels.gateway == true"
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+    ports:
+      - "10077:10077"
+    volumes:
+      - gateway_log:/opt/logs/gateway/
+    networks:
+      - srsnetwork
+volumes:
+  gateway_log:
+networks:
+  srsnetwork:
+    external:
+      name: srsnetwork
