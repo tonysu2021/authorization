@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+    <defs>
+        <filter id="Path_70838" width="55.922" height="27.806" x="12.172" y="44.676" filterUnits="userSpaceOnUse">
+            <feOffset dy="4"/>
+            <feGaussianBlur result="blur" stdDeviation="1"/>
+            <feFlood/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Ellipse_62" width="17.871" height="21.166" x="11.5" y="17.5" filterUnits="userSpaceOnUse">
+            <feOffset dy="4"/>
+            <feGaussianBlur result="blur-2" stdDeviation="1"/>
+            <feFlood/>
+            <feComposite in2="blur-2" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="Ellipse_63" width="17.871" height="21.166" x="50.84" y="17.5" filterUnits="userSpaceOnUse">
+            <feOffset dy="4"/>
+            <feGaussianBlur result="blur-3" stdDeviation="1"/>
+            <feFlood/>
+            <feComposite in2="blur-3" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <linearGradient id="linear-gradient" x1=".554" x2=".553" y1="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f8f8f8"/>
+            <stop offset="1" stop-color="#d6d6d6"/>
+        </linearGradient>
+        <clipPath id="clip-path">
+            <path id="com_body_unsuccessful_btn" fill="url(#linear-gradient)" d="M0 0H80V80H0z" transform="translate(-11348 -6685)"/>
+        </clipPath>
+        <style>
+            .cls-4{stroke:#fff;fill:#fff}
+        </style>
+    </defs>
+    <g id="com_body_unsuccessful_ic" clip-path="url(#clip-path)" transform="translate(11348 6685)">
+        <g id="com_body_unsuccessful_ic-2">
+            <g filter="url(#Path_70838)" transform="translate(-12636.125 -8747.459) translate(1288.13 2062.46)">
+                <path id="Path_70838-2" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5.751px" d="M71.03 68.13c-2.766-8.267-11.261-14.291-21.321-14.291S31.152 59.863 28.386 68.13" transform="translate(-9.57 -6.29)"/>
+            </g>
+            <g filter="url(#Ellipse_62)" transform="translate(-12636.125 -8747.459) translate(1288.13 2062.46)">
+                <ellipse id="Ellipse_62-2" cx="5.436" cy="6.583" class="cls-4" rx="5.436" ry="6.583" transform="translate(15 18)"/>
+            </g>
+            <g filter="url(#Ellipse_63)" transform="translate(-12636.125 -8747.459) translate(1288.13 2062.46)">
+                <ellipse id="Ellipse_63-2" cx="5.436" cy="6.583" class="cls-4" rx="5.436" ry="6.583" transform="translate(54.34 18)"/>
+            </g>
+        </g>
+    </g>
+</svg>

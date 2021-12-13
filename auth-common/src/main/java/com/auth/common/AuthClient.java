@@ -76,6 +76,15 @@ public class AuthClient  {
 				.retryWhen(retry);
 	}
 	
+	public Mono<Boolean> logout(String userName){
+		StringBuilder logoutUriStr = new StringBuilder("/oauth/logout");
+		logoutUriStr.append("?username=").append(userName);
+		logoutUriStr.append("&clientId=").append(secret.getClientId());
+		return client.delete().uri(logoutUriStr.toString())
+				.retrieve().bodyToMono(Boolean.class)
+				.retryWhen(retry);
+	}
+	
 	private String getAuthBasic() {
 		StringBuilder authBasicStr = new StringBuilder();
 		authBasicStr.append(secret.getClientId()).append(":").append(secret.getClientSecret());

@@ -1,0 +1,8 @@
+export const AlertActionType = {
+    SUCCESS: 'ALERT_SUCCESS',
+    ERROR: 'ALERT_ERROR',
+    CLEAR: 'ALERT_CLEAR',
+    API_LOADING : 'API_LOADING',
+    API_SUCCESS : 'API_SUCCESS',
+    API_ERROR : 'API_ERROR',
+};

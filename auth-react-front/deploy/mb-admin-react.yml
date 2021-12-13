@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  admin-react:
+    image: ${IMAGE_NAME}
+    ports:
+      - "10013:80"
+    networks:
+      - byfnmb
+networks:
+  byfnmb:
+    external:
+      name: byfnmb

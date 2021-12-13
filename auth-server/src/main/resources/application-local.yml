@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://auth-postgres:25432/auth_db
+    username: postgres
+    password: postgres
+  redis:
+    host: auth-redis
+    port: 16379
+    timeout: 5000

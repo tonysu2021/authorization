@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: auth-redis
+    port: 16379
+    timeout: 5000

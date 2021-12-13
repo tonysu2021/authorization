@@ -5,10 +5,8 @@ spring:
     name: auth-gateway
   main:
     allow-bean-definition-overriding: true
-  redis:
-    host: auth-redis
-    port: 6379
-    timeout: 5000
+  profiles:
+    active: ${PROFILE_ACTIVE:local}
   cloud:
     # Gateway (see /actuator/gateway/routes)
     gateway:

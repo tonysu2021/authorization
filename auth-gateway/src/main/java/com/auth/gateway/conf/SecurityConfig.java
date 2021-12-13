@@ -32,16 +32,18 @@ public class SecurityConfig {
 					exchanges
 					// 直播-SRS
 					.pathMatchers("/live-stream/srs_on_connect").permitAll()
+					.pathMatchers("/live-stream/on_publish").permitAll()
+					.pathMatchers("/live-stream/on_unpublish").permitAll()
 					.pathMatchers("/live-stream/srs_on_close").permitAll()
 					.pathMatchers("/live-stream/srs_on_dvr").permitAll()
 					// 直播-聊天室
 					.pathMatchers("/live-stream/chat").permitAll()
 					// 直播-影片
 					.pathMatchers("/live-stream/video").permitAll()
+					.pathMatchers("/live-stream/upload").permitAll()
+					.pathMatchers("/live-stream/ffmpeg").permitAll()
 					.pathMatchers(HttpMethod.POST,"/live-stream/auth/login").permitAll()
-					.pathMatchers("/live-stream/user/**").access(new PermissionAuthManager(cacheManager,"Live-Stream"))
-					.pathMatchers("/live-stream/ffmpeg/**").access(new PermissionAuthManager(cacheManager,"Live-Stream"))
-					.pathMatchers("/live-stream/upload/**").access(new PermissionAuthManager(cacheManager,"Live-Stream"))
+					.pathMatchers("/live-stream/**").access(new PermissionAuthManager(cacheManager,"Live-Stream"))
 					.anyExchange().authenticated()
 					)
 				.csrf().disable()

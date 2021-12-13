@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <linearGradient id="linear-gradient" x2=".82" y1="1" y2=".671" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#3d61b1"/>
+            <stop offset=".027" stop-color="#3d64b3"/>
+            <stop offset="1" stop-color="#5ce6ff"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x2="1" y1=".156" y2=".182" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#cfa028"/>
+            <stop offset=".023" stop-color="#cfa028"/>
+            <stop offset=".046" stop-color="#daab37"/>
+            <stop offset=".098" stop-color="#ecbe50"/>
+            <stop offset=".176" stop-color="#f7c95e"/>
+            <stop offset=".351" stop-color="#ffd895"/>
+            <stop offset=".529" stop-color="#fbcd64"/>
+            <stop offset=".614" stop-color="#f0c152"/>
+            <stop offset=".782" stop-color="#d8a629"/>
+            <stop offset=".859" stop-color="#d9a72a"/>
+            <stop offset=".94" stop-color="#e0ad2f"/>
+            <stop offset=".975" stop-color="#ecb839"/>
+            <stop offset="1" stop-color="#f7c242"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-3" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#a4e2ff"/>
+            <stop offset="1" stop-color="#2c66a8"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-4" x1=".528" x2=".528" y1="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fae9b3"/>
+            <stop offset="1" stop-color="#f2bc3f"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-5" x1=".521" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#cfa028"/>
+            <stop offset=".006" stop-color="#cfa028"/>
+            <stop offset=".046" stop-color="#daab37"/>
+            <stop offset=".121" stop-color="#ecbe50"/>
+            <stop offset=".184" stop-color="#f7c95e"/>
+            <stop offset=".255" stop-color="#ffdb88"/>
+            <stop offset=".364" stop-color="#fbcd64"/>
+            <stop offset=".552" stop-color="#f0c152"/>
+            <stop offset=".782" stop-color="#d8a629"/>
+            <stop offset=".906" stop-color="#d9a72a"/>
+            <stop offset=".951" stop-color="#e0ad2f"/>
+            <stop offset=".982" stop-color="#ecb839"/>
+            <stop offset="1" stop-color="#f7c242"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-6" x1=".5" x2=".5" y1="-.133" y2="1.013" gradientUnits="objectBoundingBox">
+            <stop offset=".034" stop-color="#878787"/>
+            <stop offset=".21" stop-color="#a8a8a8"/>
+            <stop offset=".444" stop-color="#cdcdcd"/>
+            <stop offset=".661" stop-color="#e8e8e8"/>
+            <stop offset=".853" stop-color="#f9f9f9"/>
+            <stop offset="1" stop-color="#fff"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-7" x1=".315" x2=".931" y1=".253" y2=".646" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#cfa028"/>
+            <stop offset=".02" stop-color="#cfa028"/>
+            <stop offset=".046" stop-color="#daab37"/>
+            <stop offset=".121" stop-color="#ecbe50"/>
+            <stop offset=".184" stop-color="#f7c95e"/>
+            <stop offset=".255" stop-color="#ffdb88"/>
+            <stop offset=".364" stop-color="#fbcd64"/>
+            <stop offset=".552" stop-color="#f0c152"/>
+            <stop offset=".782" stop-color="#d8a629"/>
+            <stop offset=".862" stop-color="#d9a72a"/>
+            <stop offset=".902" stop-color="#e0ad2f"/>
+            <stop offset=".942" stop-color="#ecb839"/>
+            <stop offset="1" stop-color="#f7c242"/>
+        </linearGradient>
+        <clipPath id="clip-path">
+            <path id="矩形_36734" fill="#8c3434" d="M0 0H32V32H0z"/>
+        </clipPath>
+        <style>
+            .cls-11{fill-rule:evenodd;fill:url(#linear-gradient-7)}
+        </style>
+    </defs>
+    <g id="组_76806" transform="translate(-1199 -717)">
+        <g id="蒙版组_1330" clip-path="url(#clip-path)" transform="translate(1199 717)">
+            <g id="组_75179" transform="translate(2.54 .32)">
+                <path id="路径_65358" fill="url(#linear-gradient)" d="M3.165 8.441L0 .048 16.132 0l.023 16.811-16.132.049z" transform="rotate(-90 18.488 13.348)"/>
+                <path id="路径_65365" fill="url(#linear-gradient-2)" d="M1.713 12.608h8.01v3.708l-3.947-1.465-3.981 1.48z" transform="translate(7.816 13.826)"/>
+                <g id="组_75168">
+                    <g id="组_75167">
+                        <path id="路径_65339" fill="url(#linear-gradient-3)" d="M12.951 0A12.9 12.9 0 1 1 0 12.9 12.923 12.923 0 0 1 12.951 0z" transform="rotate(-.716 74.104 -38.669)"/>
+                        <g id="组_75164" transform="translate(0 .11)">
+                            <path id="路径_65335" fill="url(#linear-gradient-4)" d="M-219.576 114.491a13.586 13.586 0 0 1-13.6-13.544 13.588 13.588 0 0 1 13.6-13.546 13.588 13.588 0 0 1 13.6 13.546 13.586 13.586 0 0 1-13.6 13.544zm0-25.693a12.187 12.187 0 0 0-12.2 12.149 12.186 12.186 0 0 0 12.2 12.148 12.186 12.186 0 0 0 12.2-12.148 12.187 12.187 0 0 0-12.2-12.147z" transform="translate(233.176 -87.401)"/>
+                        </g>
+                        <g id="组_75165">
+                            <path id="路径_65336" fill="#faeb8d" d="M-219.576 87.51a13.072 13.072 0 0 1 13.083 13.032 13.07 13.07 0 0 1-13.083 13.03 13.07 13.07 0 0 1-13.082-13.03 13.072 13.072 0 0 1 13.082-13.032m0-.514a13.588 13.588 0 0 0-13.6 13.546 13.586 13.586 0 0 0 13.6 13.544 13.586 13.586 0 0 0 13.6-13.544A13.588 13.588 0 0 0-219.576 87z" transform="translate(233.176 -86.996)"/>
+                        </g>
+                        <g id="组_75166" transform="translate(0 .11)">
+                            <path id="路径_65337" fill="url(#linear-gradient-5)" d="M-219.576 87.916a13.072 13.072 0 0 1 13.083 13.031 13.071 13.071 0 0 1-13.083 13.03 13.07 13.07 0 0 1-13.082-13.03 13.072 13.072 0 0 1 13.082-13.031m0-.515a13.588 13.588 0 0 0-13.6 13.546 13.586 13.586 0 0 0 13.6 13.544 13.586 13.586 0 0 0 13.6-13.544 13.588 13.588 0 0 0-13.6-13.546z" transform="translate(233.176 -87.401)"/>
+                        </g>
+                        <path id="路径_65338" fill="url(#linear-gradient-6)" d="M-210.644 71.959a12.3 12.3 0 0 0-14.232 6.413 15.35 15.35 0 0 0-1 6.977c4.232-3.115 12.846-6.264 23.528-6.077a12.638 12.638 0 0 0-3.05-4.3c-2.076-1.83-1.887-1.826-5.246-3.013z" transform="translate(227.39 -70.034)" style="mix-blend-mode:soft-light;isolation:isolate" opacity="0.5"/>
+                    </g>
+                    <text id="保本" fill="#fff" font-family="YuGothicUI-Regular, Yu Gothic UI" font-size="9px" transform="translate(13.302 15.333)">
+                        <tspan x="-9" y="0">保本</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+        <path id="路径_65362" d="M23.592 148.56l.4 1.07 1.093.068-.847.728.28 1.113-.923-.624-.919.624.28-1.113-.856-.726 1.093-.068z" class="cls-11" transform="translate(1191.619 590.2)"/>
+        <path id="路径_65363" d="M23.592 148.56l.4 1.07 1.093.068-.847.728.28 1.113-.923-.624-.919.624.28-1.113-.856-.726 1.093-.068z" class="cls-11" transform="translate(1197.699 588.28)"/>
+        <path id="路径_65364" d="M23.592 148.56l.4 1.07 1.093.068-.847.728.28 1.113-.923-.624-.919.624.28-1.113-.856-.726 1.093-.068z" class="cls-11" transform="translate(1185.539 588.28)"/>
+    </g>
+</svg>

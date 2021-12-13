@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="300" viewBox="0 0 380 300">
+    <defs>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y1="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <clipPath id="clip-path">
+            <path id="Rectangle_37092" fill="#fff" d="M0 0H380V300H0z" opacity="0.43" transform="translate(988 737)"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:url(#linear-gradient)}
+        </style>
+    </defs>
+    <g id="com_body_audio_ic" clip-path="url(#clip-path)" transform="translate(-988 -737)">
+        <g id="com_body_audio_ic-2" transform="translate(1028 814)">
+            <path id="Rectangle_579" d="M0 0H15.504V85.273H0z" class="cls-3" transform="translate(0 33.737)"/>
+            <path id="Rectangle_580" d="M0 0H15.504V114.992H0z" class="cls-3" transform="translate(23.257 15.504)"/>
+            <path id="Rectangle_581" d="M0 0H15.504V146H0z" class="cls-3" transform="translate(51.727)"/>
+            <path id="Rectangle_582" d="M0 0H15.504V114.992H0z" class="cls-3" transform="translate(77.59 15.504)"/>
+            <path id="Rectangle_583" d="M0 0H15.504V69.769H0z" class="cls-3" transform="translate(103.453 41.579)"/>
+            <path id="Rectangle_584" d="M0 0H15.504V23.256H0z" class="cls-3" transform="translate(129.317 64.982)"/>
+            <path id="Rectangle_585" d="M0 0H15.504V7.752H0z" class="cls-3" transform="translate(155.179 72.761)"/>
+            <path id="Rectangle_586" d="M0 0H15.504V7.752H0z" class="cls-3" transform="translate(181.043 72.761)"/>
+            <path id="Rectangle_587" d="M0 0H15.504V23.256H0z" class="cls-3" transform="translate(206.906 64.982)"/>
+            <path id="Rectangle_588" d="M0 0H15.504V114.992H0z" class="cls-3" transform="translate(232.77 15.504)"/>
+            <path id="Rectangle_589" d="M0 0H15.504V114.992H0z" class="cls-3" transform="translate(232.77 15.504)"/>
+            <path id="Rectangle_590" d="M0 0H15.504V83.983H0z" class="cls-3" transform="translate(261.239 31.008)"/>
+            <path id="Rectangle_591" d="M0 0H15.504V69.769H0z" class="cls-3" transform="translate(284.496 41.579)"/>
+        </g>
+    </g>
+</svg>

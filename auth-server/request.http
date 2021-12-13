@@ -1,0 +1,96 @@
+@host = 127.0.0.1:10083
+@clientId = admin
+@clientSecret = 123456
+@username = admin
+@password = 123456
+
+###
+# @name token
+
+POST /oauth/token?grant_type=password&username={{username}}&password={{password}}&scope=read HTTP/1.1
+Host: {{host}}
+Authorization: Basic {{clientId}}:{{clientSecret}}
+
+###
+
+@accessToken = {{token.response.body.access_token}}
+@refreshToken = {{token.response.body.refresh_token}}
+
+# @name check_token
+
+POST /oauth/check_token?token={{accessToken}} HTTP/1.1
+Host: {{host}}
+
+###
+
+# @name refresh_token
+
+POST /oauth/token?grant_type=refresh_token&refresh_token={{refreshToken}}&scope=read HTTP/1.1
+Host: {{host}}
+Authorization: Basic {{clientId}}:{{clientSecret}}
+
+###
+
+# @name jwks
+
+GET /.well-known/jwks.json HTTP/1.1
+Host: {{host}}
+
+###
+
+# @name introspect
+
+POST /introspect?token={{accessToken}} HTTP/1.1
+Host: {{host}}
+
+###
+
+# @name find_all_user
+
+GET /user HTTP/1.1
+Host: {{host}}
+Authorization: {{accessToken}}
+
+###
+
+# @name find_user
+
+GET /user/{{username}} HTTP/1.1
+Host: {{host}}
+Authorization: {{accessToken}}
+
+###
+
+# @name register_user
+
+POST /user HTTP/1.1
+Host: {{host}}
+Content-Type: application/json
+
+{
+    "userName":"tony02",
+    "password":"123456",
+    "phone":"",
+    "email":""
+}
+
+###
+
+# @name change_password
+
+PATCH /user/{{username}} HTTP/1.1
+Host: {{host}}
+Content-Type: application/json
+
+{
+    "oldPassword":"123456",
+    "newPassword":"123456"
+}
+
+### 
+
+# @name logout
+DELETE /oauth/logout?username={{username}}&clientId={{clientId}}
+Host: {{host}}
+
+###

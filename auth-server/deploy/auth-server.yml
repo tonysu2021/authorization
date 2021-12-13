@@ -2,8 +2,6 @@ version: "3.7"
 services:
   auth-server:
     image: ${IMAGE_NAME}
-    extra_hosts:
-      auth-postgres: 172.20.111.184
     deploy:
       placement:
         constraints:
@@ -13,12 +11,14 @@ services:
         condition: on-failure
         delay: 10s
         max_attempts: 3
+    environment:
+      - PROFILE_ACTIVE=dev
     ports:
       - "10083:10083"
     networks:
-      - srsnetwork
+      - authnetwork
 
 networks:
-  srsnetwork:
+  authnetwork:
     external:
-      name: srsnetwork
+      name: authnetwork

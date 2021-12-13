@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  auth-redis:
+    image: auth-redis:0.0.1
+    command: redis-server --appendonly yes
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "4G"
+    ports:
+      - "16379:6379"
+    volumes:
+      - auth_redis_storage:/data
+    networks:
+      - authnetwork
+
+volumes:
+  auth_redis_storage:
+
+networks:
+  authnetwork:
+    external:
+      name: authnetwork

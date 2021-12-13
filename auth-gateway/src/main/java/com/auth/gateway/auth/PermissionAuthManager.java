@@ -54,8 +54,9 @@ public class PermissionAuthManager implements ReactiveAuthorizationManager<Autho
 			logger.info("Insufficient authority");
 			return Mono.just(new AuthorizationDecision(false));
 		}
-				
 		return cacheManager.get(generateKey(clientId,auth.getName()), AuthDomain.class).map(authDomain -> {
+			logger.info("token {}",principal.getTokenValue());
+			logger.info("cache {}",authDomain.getAccessToken());
 			if (!StringUtils.contains(principal.getTokenValue(), authDomain.getAccessToken())) {
 				logger.info("Acess Token  is inconsistent");
 				return new AuthorizationDecision(false);

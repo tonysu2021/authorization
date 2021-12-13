@@ -1,0 +1,17 @@
+package com.auth.server.domain.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.auth.server.domain.entity.TbUser;
+
+@Repository
+public interface TbUserRepository extends JpaRepository<TbUser, String> {
+	
+	@Query("Select tbUser From TbUser tbUser " 
+			+ "Where tbUser.userName = :userName ")	
+	public Optional<TbUser> findByUserName(String userName);
+}

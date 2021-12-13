@@ -1,10 +1,7 @@
 server:
   port: 10083
 spring:
-  datasource:
-    url: jdbc:postgresql://auth-postgres:25432/auth_db
-    username: postgres
-    password: postgres
+  profiles:    active: ${PROFILE_ACTIVE:local}
   jpa:
     hibernate:
       ddl-auto: none
@@ -12,7 +9,6 @@ spring:
       hibernate:
         show-sql: true
     open-in-view: false
-        
 #  security:
 #    oauth2:
 #      client:

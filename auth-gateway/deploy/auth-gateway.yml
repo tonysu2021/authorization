@@ -3,7 +3,7 @@ services:
   auth-gateway:
     image: ${IMAGE_NAME}
     extra_hosts:
-      auth-redis: 172.20.111.184
+      live-streaming-video: 172.20.111.185
     deploy:
       placement:
         constraints:
@@ -17,11 +17,13 @@ services:
       - "10077:10077"
     volumes:
       - gateway_log:/opt/logs/gateway/
+    environment:
+      - PROFILE_ACTIVE=dev
     networks:
-      - srsnetwork
+      - authnetwork
 volumes:
   gateway_log:
 networks:
-  srsnetwork:
+  authnetwork:
     external:
-      name: srsnetwork
+      name: authnetwork
