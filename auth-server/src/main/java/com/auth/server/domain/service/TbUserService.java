@@ -4,8 +4,10 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +26,10 @@ public class TbUserService {
 	@Autowired
 	private TbUserRepository repository;
 
-	public List<TbUser> findAll() {
-		return repository.findAll();
+	@Async("CustomAsyncExecutor")
+	public CompletableFuture<List<TbUser>> findAll() {
+		var result = repository.findAll();
+		return CompletableFuture.completedFuture(result);
 	}
 
 	public Optional<TbUser> findByUserName(String userName) {

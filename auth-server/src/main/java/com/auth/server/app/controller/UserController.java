@@ -2,8 +2,10 @@ package com.auth.server.app.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 
 import org.mapstruct.factory.Mappers;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,8 @@ import com.auth.server.domain.service.TbUserService;
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
+	
+	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	@Qualifier("tbUserService")
@@ -36,8 +40,12 @@ public class UserController {
 	private UserMapper mapper = Mappers.getMapper(UserMapper.class);
 	
 	@GetMapping
-	public ResponseEntity<List<UserResponse>> findAll() {
-		List<TbUser> tbUsers = tbUserService.findAll();
+	public ResponseEntity<List<UserResponse>> findAll() throws InterruptedException, ExecutionException  {
+		var usersFuture = tbUserService.findAll().exceptionally(e -> {
+			logger.error(e.getMessage());
+			return null;
+		});
+		List<TbUser> tbUsers = usersFuture.get();
 
 		if (CollectionUtils.isEmpty(tbUsers)) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

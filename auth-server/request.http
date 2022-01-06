@@ -4,14 +4,14 @@
 @username = admin
 @password = 123456
 
-###
+### 建立一組Token
 # @name token
 
 POST /oauth/token?grant_type=password&username={{username}}&password={{password}}&scope=read HTTP/1.1
 Host: {{host}}
 Authorization: Basic {{clientId}}:{{clientSecret}}
 
-###
+### 確認Token的細節
 
 @accessToken = {{token.response.body.access_token}}
 @refreshToken = {{token.response.body.refresh_token}}
@@ -21,7 +21,7 @@ Authorization: Basic {{clientId}}:{{clientSecret}}
 POST /oauth/check_token?token={{accessToken}} HTTP/1.1
 Host: {{host}}
 
-###
+### 刷新Token
 
 # @name refresh_token
 
@@ -43,7 +43,7 @@ Host: {{host}}
 POST /introspect?token={{accessToken}} HTTP/1.1
 Host: {{host}}
 
-###
+### 查詢所有用戶
 
 # @name find_all_user
 
@@ -51,7 +51,7 @@ GET /user HTTP/1.1
 Host: {{host}}
 Authorization: {{accessToken}}
 
-###
+### 查詢用戶
 
 # @name find_user
 
@@ -59,7 +59,7 @@ GET /user/{{username}} HTTP/1.1
 Host: {{host}}
 Authorization: {{accessToken}}
 
-###
+### 註冊用戶
 
 # @name register_user
 
@@ -74,7 +74,7 @@ Content-Type: application/json
     "email":""
 }
 
-###
+### 用戶修改密碼
 
 # @name change_password
 

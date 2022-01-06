@@ -50,16 +50,24 @@ Tony
 
 前端模組
 
-* auth-admin-portal : 傳統One Model，採用thymeleaf。
+* auth-admin-portal
+
+  傳統One Model，採用thymeleaf，目前只是做為參考使用。
 * auth-react-front
+
+  作為後臺管理前端使用，目前已串接完成登入以及查所有用戶API。
 
 OAuth2 Client 模組
 
 * auth-common
 
+  提供給其他系統，作為auth client (sdk)使用。
+
 OAuth2 Resource 模組
 
 * auth-gateway
+
+  針對Http、Ws進行用戶驗證，若驗證成功，則會轉入對應系統(例如e-commerce)。
 
 OAuth2 Server 模組
 
