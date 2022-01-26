@@ -63,7 +63,7 @@ Authorization: {{accessToken}}
 
 # @name register_user
 
-POST /user HTTP/1.1
+POST /user/register HTTP/1.1
 Host: {{host}}
 Content-Type: application/json
 
@@ -80,6 +80,7 @@ Content-Type: application/json
 
 PATCH /user/{{username}} HTTP/1.1
 Host: {{host}}
+Authorization: {{accessToken}}
 Content-Type: application/json
 
 {

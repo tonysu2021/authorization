@@ -4,10 +4,8 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +24,8 @@ public class TbUserService {
 	@Autowired
 	private TbUserRepository repository;
 
-	@Async("CustomAsyncExecutor")
-	public CompletableFuture<List<TbUser>> findAll() {
-		var result = repository.findAll();
-		return CompletableFuture.completedFuture(result);
+	public List<TbUser> findAll() {
+		return repository.findAll();
 	}
 
 	public Optional<TbUser> findByUserName(String userName) {
@@ -40,7 +36,7 @@ public class TbUserService {
 		return repository.findById(userId);
 	}
 
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public TbUser registerUser(UserPostRequest request) {
 		TbUser tbUser = new TbUser();
 		tbUser.setId("user-" + UUID.randomUUID().toString());
@@ -53,7 +49,12 @@ public class TbUserService {
 		return repository.save(tbUser);
 	}
 
-	@Transactional
+	/**
+	 * 切記，若外層有@Transactional，並且外層方法拋出異常，會讓內層一起回滾。 <br>
+	 * 備註: @Transactional 預設propagation = Propagation.REQUIRED
+	 * 
+	 * */
+	@Transactional(rollbackFor = Exception.class)
 	public TbUser updateUser(TbUser tbUser, UserPatchRequest request) {
 		tbUser.setPassword(passwordEncoder.encode(request.getNewPassword()));
 		tbUser.setModifyTime(Instant.now());

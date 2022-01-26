@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 
 import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import com.auth.server.app.dto.request.UserPatchRequest;
 import com.auth.server.app.dto.request.UserPostRequest;
 import com.auth.server.app.dto.response.UserResponse;
 import com.auth.server.app.mapper.UserMapper;
+import com.auth.server.app.service.UserService;
 import com.auth.server.domain.entity.TbUser;
 import com.auth.server.domain.service.TbUserService;
 
@@ -31,17 +33,21 @@ import com.auth.server.domain.service.TbUserService;
 @RequestMapping(value = "/user")
 public class UserController {
 	
-	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	@Qualifier("tbUserService")
 	private TbUserService tbUserService;
 	
+	@Autowired
+	@Qualifier("userService")
+	private UserService userService;
+	
 	private UserMapper mapper = Mappers.getMapper(UserMapper.class);
 	
 	@GetMapping
 	public ResponseEntity<List<UserResponse>> findAll() throws InterruptedException, ExecutionException  {
-		var usersFuture = tbUserService.findAll().exceptionally(e -> {
+		var usersFuture = userService.findAll().exceptionally(e -> {
 			logger.error(e.getMessage());
 			return null;
 		});
@@ -54,8 +60,8 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/{userName}")
-	public ResponseEntity<UserResponse> findUserById(@PathVariable String userName) {
-		Optional<TbUser> tbUserOpt = tbUserService.findByUserName(userName);
+	public ResponseEntity<UserResponse> findByUserName(@PathVariable String userName) {
+		Optional<TbUser> tbUserOpt = userService.findByUserName(userName);
 
 		if (!tbUserOpt.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -65,9 +71,9 @@ public class UserController {
 		return new ResponseEntity<>(mapper.entityToDto(tbUser), HttpStatus.OK);
 	}
 
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value="/register", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserResponse> registerUser(@RequestBody UserPostRequest request) {
-		Optional<TbUser> tbUserOpt = tbUserService.findByUserName(request.getUserName());
+		Optional<TbUser> tbUserOpt = userService.findByUserName(request.getUserName());
 
 		if (tbUserOpt.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
@@ -79,7 +85,7 @@ public class UserController {
 
 	@PatchMapping(value = "/{userName}")
 	public ResponseEntity<UserResponse> updateUserPass(@PathVariable String userName, @RequestBody UserPatchRequest request) {
-		Optional<TbUser> tbUserOpt = tbUserService.findByUserName(userName);
+		Optional<TbUser> tbUserOpt = userService.findByUserName(userName);
 
 		if (!tbUserOpt.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
@@ -88,7 +94,7 @@ public class UserController {
 		if (!tbUserService.matches(request.getOldPassword(), tbUser.getPassword())) {
 			return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
 		}
-		tbUser = tbUserService.updateUser(tbUser, request);
+		tbUser = userService.updateUser(tbUser, request);
 		return new ResponseEntity<>(mapper.entityToDto(tbUser), HttpStatus.OK);
 	}
 }

@@ -23,6 +23,12 @@ public class AuthDomain {
 	
 	@JsonProperty("jti")
 	private String jti;
+	
+	@JsonProperty("error")
+	private String error;
+	
+	@JsonProperty("error_description")
+	private String errorDescription;
 
 	public String getAccessToken() {
 		return accessToken;
@@ -70,5 +76,21 @@ public class AuthDomain {
 
 	public void setJti(String jti) {
 		this.jti = jti;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
+	public String getErrorDescription() {
+		return errorDescription;
+	}
+
+	public void setErrorDescription(String errorDescription) {
+		this.errorDescription = errorDescription;
 	}
 }

@@ -17,4 +17,8 @@ public interface TbPerRepository extends JpaRepository<TbPermission, String> {
 			+ "Left Join TbUserRole tbUserRole on tbRolePer.roleId = tbUserRole.roleId "
 			+ "Where tbUserRole.userId = :userId ")
 	public Optional<List<TbPermission>> findByUserId(String userId);
+	
+	@Query("Select tbPer From TbPermission tbPer "
+			+ "Where tbPer.parentId = :id ")
+	public Optional<List<TbPermission>> findByParentId(String id);
 }

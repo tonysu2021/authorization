@@ -18,5 +18,13 @@ public class TbPerService {
 	public Optional<List<TbPermission>> findByUserId(String userId) {
 		return repository.findByUserId(userId);
 	}
+	
+	public Optional<TbPermission> findById(String id){
+		return repository.findById(id);
+	}
+	
+	public Optional<List<TbPermission>> findByParentId(String parentId){
+		return repository.findByParentId(parentId);
+	}
 
 }

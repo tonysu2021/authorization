@@ -57,6 +57,9 @@ public class AccessTokenAlterFilter implements Filter {
 		// 緩存至Redis
 		TokenStore tokenStore = (TokenStore) utils.getBean(BeanConstant.TOKEN_STORE);
 		OAuth2Authentication authentication = tokenStore.readAuthentication(accessToken);
+		if (authentication == null) {
+			return;
+		}
 		logger.info("Response userName: {}", authentication.getName());
 		logger.info("Response clientId: {}", authentication.getOAuth2Request().getClientId());
 		logger.info("Response accessToken: {}", accessToken);

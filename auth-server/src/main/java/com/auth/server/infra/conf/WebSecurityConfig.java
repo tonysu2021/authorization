@@ -25,7 +25,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/user").antMatchers("/user/*").antMatchers("/oauth/logout").antMatchers("/oauth/check_token")
+		web.ignoring()
+				.antMatchers("/user").antMatchers("/user/*")
+				.antMatchers("/permission").antMatchers("/permission/*")
+				.antMatchers("/oauth/logout").antMatchers("/oauth/check_token")
 				.antMatchers("/introspect").mvcMatchers("/.well-known/jwks.json");
 	}
 
