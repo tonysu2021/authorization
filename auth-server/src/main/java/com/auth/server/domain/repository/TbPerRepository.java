@@ -20,5 +20,6 @@ public interface TbPerRepository extends JpaRepository<TbPermission, String> {
 	
 	@Query("Select tbPer From TbPermission tbPer "
 			+ "Where tbPer.parentId = :id ")
-	public Optional<List<TbPermission>> findByParentId(String id);
+	public Optional<List<TbPermission>> findSubPerById(String id);
+	
 }

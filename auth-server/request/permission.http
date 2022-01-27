@@ -1,10 +1,25 @@
 @host = 127.0.0.1:10083
+@userId = admin
 
-### 查詢權限
+### 查詢指定權限結構
 
 # @name find_by_id
 
 GET /permission/per37 HTTP/1.1
+Host: {{host}}
+
+### 透過userid查詢權限
+
+# @name findPerTreeByUserId
+
+GET /permission/{{userId}}/tree HTTP/1.1
+Host: {{host}}
+
+### 透過userid查詢權限
+
+# @name findPerListByUserId
+
+GET /permission/{{userId}}/list HTTP/1.1
 Host: {{host}}
 
 ###

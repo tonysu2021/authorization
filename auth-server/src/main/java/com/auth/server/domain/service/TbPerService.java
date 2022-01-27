@@ -19,12 +19,15 @@ public class TbPerService {
 		return repository.findByUserId(userId);
 	}
 	
-	public Optional<TbPermission> findById(String id){
-		return repository.findById(id);
+	public Optional<TbPermission> findByPermissionId(String permissionId){
+		return repository.findById(permissionId);
 	}
 	
-	public Optional<List<TbPermission>> findByParentId(String parentId){
-		return repository.findByParentId(parentId);
+	/**
+	 * 尋找該節點的子節點權限
+	 * 
+	 * */
+	public Optional<List<TbPermission>> findSubPerById(String id){
+		return repository.findSubPerById(id);
 	}
-
 }
