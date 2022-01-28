@@ -1,4 +1,4 @@
-package com.auth.server.app.dto.response;
+package com.auth.server.web.dto.response;
 
 public interface AbstractResponse {
 

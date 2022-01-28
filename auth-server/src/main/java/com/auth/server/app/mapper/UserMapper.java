@@ -5,8 +5,8 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.auth.server.app.dto.response.UserResponse;
 import com.auth.server.domain.entity.TbUser;
+import com.auth.server.web.dto.response.UserResponse;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {

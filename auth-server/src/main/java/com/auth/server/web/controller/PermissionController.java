@@ -1,4 +1,4 @@
-package com.auth.server.app.controller;
+package com.auth.server.web.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.auth.server.app.dto.request.PermissionPostRequest;
-import com.auth.server.app.dto.response.PermissionResponse;
 import com.auth.server.app.service.PermissionService;
+import com.auth.server.web.dto.request.PermissionPostRequest;
+import com.auth.server.web.dto.response.PermissionResponse;
 
 @RestController
 @RequestMapping(value = "/permission")
@@ -27,7 +27,7 @@ public class PermissionController {
 	private PermissionService permissionService;
 	
 	@GetMapping(value = "/{permissionId}")
-	public ResponseEntity<PermissionResponse> findByPermissionId(@PathVariable String permissionId) {
+	public ResponseEntity<PermissionResponse> findPerTreeByPermissionId(@PathVariable String permissionId) {
 		PermissionResponse permissionDto = permissionService.findByPermissionId(permissionId);
 		if (permissionDto == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

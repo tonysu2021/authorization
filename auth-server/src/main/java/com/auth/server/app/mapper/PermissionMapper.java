@@ -5,8 +5,8 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.auth.server.app.dto.response.PermissionResponse;
 import com.auth.server.domain.entity.TbPermission;
+import com.auth.server.web.dto.response.PermissionResponse;
 
 @Mapper(componentModel = "spring")
 public interface PermissionMapper {

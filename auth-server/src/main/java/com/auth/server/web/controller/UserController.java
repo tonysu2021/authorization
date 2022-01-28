@@ -1,4 +1,4 @@
-package com.auth.server.app.controller;
+package com.auth.server.web.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.auth.server.app.dto.request.UserPatchRequest;
-import com.auth.server.app.dto.request.UserPostRequest;
-import com.auth.server.app.dto.response.UserResponse;
 import com.auth.server.app.mapper.UserMapper;
 import com.auth.server.app.service.UserService;
 import com.auth.server.domain.entity.TbUser;
 import com.auth.server.domain.service.TbUserService;
+import com.auth.server.web.dto.request.UserPatchRequest;
+import com.auth.server.web.dto.request.UserPostRequest;
+import com.auth.server.web.dto.response.UserResponse;
 
 @RestController
 @RequestMapping(value = "/user")

@@ -1,7 +1,6 @@
 package com.auth.server.infra.conf;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,7 +51,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	@ConditionalOnBean(RedisTemplate.class)
 	public AccessTokenAlterFilter accessTokenAlterFilter(ObjectMapper objectMapper,
 			@Qualifier(BeanConstant.CONTEXT_UTIL) ContextUtil utils,
 			@Qualifier(BeanConstant.REDIS_TEMPLATE) RedisTemplate<String, AuthDomain> redisTemplate) {

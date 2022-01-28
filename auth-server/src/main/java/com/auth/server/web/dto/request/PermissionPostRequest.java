@@ -1,4 +1,4 @@
-package com.auth.server.app.dto.request;
+package com.auth.server.web.dto.request;
 
 public class PermissionPostRequest {
 

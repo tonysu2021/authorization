@@ -1,4 +1,4 @@
-package com.auth.server.app.endpoint;
+package com.auth.server.web.endpoint;
 
 import java.util.HashMap;
 import java.util.Map;

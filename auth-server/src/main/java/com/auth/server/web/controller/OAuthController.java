@@ -1,4 +1,4 @@
-package com.auth.server.app.controller;
+package com.auth.server.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

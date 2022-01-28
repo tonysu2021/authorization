@@ -15,10 +15,10 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.auth.server.app.dto.response.PermissionResponse;
 import com.auth.server.app.mapper.PermissionMapper;
 import com.auth.server.domain.entity.TbPermission;
 import com.auth.server.domain.service.TbPerService;
+import com.auth.server.web.dto.response.PermissionResponse;
 
 @Service
 public class PermissionService {
@@ -35,7 +35,8 @@ public class PermissionService {
 	}
 
 	/**
-	 * 使用廣度優先搜尋方式。
+	 * 查詢該權限底下的子權限，使用廣度優先搜尋方式。
+	 * 
 	 * 
 	 */
 	public PermissionResponse findSubByPermission(PermissionResponse start) {
@@ -66,6 +67,11 @@ public class PermissionService {
 		return start;
 	}
 
+	/**
+	 * 查詢該權限底下的子權限，使用廣度優先搜尋方式。
+	 * 
+	 * 
+	 */
 	public PermissionResponse findSubByPermission(PermissionResponse start, List<TbPermission> perEntityList) {
 		Queue<PermissionResponse> queue = new LinkedList<>();
 		Set<String> visited = new HashSet<>();

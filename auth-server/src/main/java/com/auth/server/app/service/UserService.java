@@ -15,10 +15,10 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import com.auth.server.app.dto.request.UserPatchRequest;
 import com.auth.server.domain.entity.TbUser;
 import com.auth.server.domain.service.TbUserService;
 import com.auth.server.infra.redis.CacheKey;
+import com.auth.server.web.dto.request.UserPatchRequest;
 
 @Service("userService")
 @CacheConfig(cacheNames = CacheKey.USER)

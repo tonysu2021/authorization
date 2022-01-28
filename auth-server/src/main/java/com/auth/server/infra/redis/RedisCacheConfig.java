@@ -1,4 +1,4 @@
-package com.auth.server.infra.conf;
+package com.auth.server.infra.redis;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -17,7 +17,6 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 
 import com.auth.server.infra.constant.BeanConstant;
-import com.auth.server.infra.redis.RedisCacheKey;
 
 @Configuration
 @EnableCaching

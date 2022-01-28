@@ -1,4 +1,4 @@
-package com.auth.server.infra.conf;
+package com.auth.server.infra.redis;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;

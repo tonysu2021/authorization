@@ -10,10 +10,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.auth.server.app.dto.request.UserPatchRequest;
-import com.auth.server.app.dto.request.UserPostRequest;
 import com.auth.server.domain.entity.TbUser;
 import com.auth.server.domain.repository.TbUserRepository;
+import com.auth.server.web.dto.request.UserPatchRequest;
+import com.auth.server.web.dto.request.UserPostRequest;
 
 @Service("tbUserService")
 public class TbUserService {
