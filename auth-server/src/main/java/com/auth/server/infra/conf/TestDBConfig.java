@@ -17,14 +17,14 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @EnableJpaRepositories(basePackages = { "com.auth.server.domain.repository" })
 @Configuration
-@Profile("!test")
-public class JpaConfig {
-
+@Profile("test")
+public class TestDBConfig {
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSourceProperties dataSourceProperties) {
 
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		vendorAdapter.setDatabase(Database.POSTGRESQL);
+		vendorAdapter.setDatabase(Database.H2);
 
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource(dataSourceProperties));
@@ -32,7 +32,7 @@ public class JpaConfig {
 		em.setJpaVendorAdapter(vendorAdapter);
 		return em;
 	}
-
+	
 	@Primary
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource(DataSourceProperties dataSourceProperties) {
@@ -40,7 +40,7 @@ public class JpaConfig {
 		config.setJdbcUrl(dataSourceProperties.getUrl());
 		config.setUsername(dataSourceProperties.getUsername());
 		config.setPassword(dataSourceProperties.getPassword());
-		config.setDriverClassName(org.postgresql.Driver.class.getName());
+		config.setDriverClassName("org.h2.Driver");
 		config.setMaximumPoolSize(5);
 		return new HikariDataSource(config);
 	}
