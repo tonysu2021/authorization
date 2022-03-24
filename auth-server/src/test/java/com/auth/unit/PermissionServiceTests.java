@@ -1,4 +1,4 @@
-package com.commerce.auth.unit;
+package com.auth.unit;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

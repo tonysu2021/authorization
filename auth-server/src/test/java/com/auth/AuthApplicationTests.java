@@ -1,4 +1,4 @@
-package com.commerce.auth;
+package com.auth;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
